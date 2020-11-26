@@ -4,7 +4,7 @@
       <ul class="parentUl" v-if="menu">
         <template v-for="(menuItem,key) in menu" >
               <li v-bind:key="key"  v-if="menuItem.meta&&menuItem.meta.navShow&&menuItem.meta.leftNav"  v-bind:class="menuItem.children?'parentNav':''">
-                <router-link @click.self.native="navToggle({changekey:key,show:menuItem.meta.navChildShow})" active-class="navActive" exact-active-class="navExactActive" v-bind:to="menuItem.path" v-text="menuItem.meta.navText"></router-link>
+                <router-link  @click.self.native="navToggle({changekey:key,show:menuItem.meta.navChildShow,routerInfo:$route,childrenList:menuItem.children})" active-class="navActive" exact-active-class="navExactActive" v-bind:to="menuItem.path" v-text="menuItem.meta.navText"></router-link>
                 <template v-if="menuItem.children">
                   <ul>
                      <template v-for="(childMenuItem,key) in menuItem.children" >

@@ -11,13 +11,13 @@ const routes = [
         {
           path: '/index',
           name: 'Index',
-          meta: {requiresAuth:false,navShow:true,navText:langText.A.a1,navIcon:'',navSort:1,leftNav:true,navChildShow:true},
+          meta: {requiresAuth:false,navShow:true,navText:langText.A.a1,navIcon:'',navSort:1,leftNav:true,navChildShow:false},
           component: () => import('../views/Index.vue')
         },
         {
           path: '/about',
           name: 'About',
-          meta:{requiresAuth:false,navShow:true,navText:langText.A.a1,navIcon:'',navSort:1,leftNav:true,navChildShow:true},
+          meta:{requiresAuth:false,navShow:true,navText:langText.A.a1,navIcon:'',navSort:1,leftNav:true,navChildShow:false},
           // route level code-splitting
           // this generates a separate chunk (about.[hash].js) for this route
           // which is lazy-loaded when the route is visited.
@@ -26,7 +26,7 @@ const routes = [
         {
           path: '/test',
           name: 'Test',
-          meta: {requiresAuth:false,navShow:true,navText:langText.A.a1,navIcon:'',navSort:1,leftNav:true,navChildShow:true},
+          meta: {requiresAuth:false,navShow:true,navText:langText.A.a1,navIcon:'',navSort:1,leftNav:true,navChildShow:false},
           component: () => import('../views/Test.vue'),
           children:[
             {path:'add1', meta: {requiresAuth:false,navShow:true,navText:langText.A.a1,navIcon:'',navSort:1,leftNav:true,},component: () => import('../views/Test.vue')},
