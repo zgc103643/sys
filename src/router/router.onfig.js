@@ -12,7 +12,13 @@ const routes = [
           path: '/index',
           name: 'Index',
           meta: {requiresAuth:false,navShow:true,navText:langText.A.a1,navIcon:'',navSort:1,leftNav:true,navChildShow:false},
-          component: () => import('../views/Index.vue')
+          children:[
+            {path:'add1', meta: {requiresAuth:false,navShow:true,navText:langText.A.a1,navIcon:'',navSort:1,leftNav:true,},component: () => import('../views/Index.vue')},
+            {path:'add2', meta: {requiresAuth:false,navShow:true,navText:langText.A.a1,navIcon:'',navSort:1,leftNav:true,},component: () => import('../views/Index.vue')},
+            {path:'add3', meta: {requiresAuth:false,navShow:true,navText:langText.A.a1,navIcon:'',navSort:1,leftNav:true,},component: () => import('../views/Index.vue')},
+            {path:'add4', meta: {requiresAuth:false,navShow:true,navText:langText.A.a1,navIcon:'',navSort:1,leftNav:true,},component: () => import('../views/Index.vue')},
+          ],
+          redirect: '/index/add1',
         },
         {
           path: '/about',

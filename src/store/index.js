@@ -15,6 +15,7 @@ export default new Vuex.Store({
   },
   mutations: {
     UI_menu_click_toggle(state,data){
+     // console.log(data.routerInfo)
       /*恢复所有隐藏子导航*/
       for(let key in state.UI.menu){
         if(state.UI.menu[key].meta){
