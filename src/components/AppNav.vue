@@ -9,7 +9,7 @@
                   <ul>
                      <template v-for="(childMenuItem,ckey) in menuItem.children" >
                          <li v-bind:key="ckey"  v-if="childMenuItem.meta&&childMenuItem.meta.navShow&&menuItem.meta.navChildShow">
-                           <router-link  @click.self.native="savePath({menuIndex:key,path:$route.path})"  active-class="navActive" exact-active-class="navExactActive" v-bind:to="childMenuItem.path" v-text="childMenuItem.meta.navText"></router-link>
+                           <router-link  active-class="navActive" exact-active-class="navExactActive" v-bind:to="childMenuItem.path" v-text="childMenuItem.meta.navText"></router-link>
                          </li>
                      </template>
                   </ul>
@@ -21,7 +21,6 @@
   </div>
 </template>
 <script>
-import routes from "../router/router.onfig"
 export default {
   data(){
     return {
@@ -37,13 +36,6 @@ export default {
   methods:{
     navToggle(data){
       this.$store.commit("UI_menu_click_toggle",data);
-    },
-    savePath(data){
-      routes[0].children[data.menuIndex].redirect=data.path;
-      console.log(this.$root)
-      this.$router.options.routes =routes;
-      this.$router.addRoutes(routes);
-      this.$forceUpdate();
     }
   }
 }

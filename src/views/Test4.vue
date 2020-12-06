@@ -1,5 +1,5 @@
 <template>
   <div class="Test">
-    <router-view/>
+    <h1>This is an Test page4</h1>
   </div>
 </template>

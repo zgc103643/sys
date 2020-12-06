@@ -15,7 +15,7 @@ router.beforeEach((to, from, next) => {
   const accessToken = window.sessionStorage.getItem('token')
   //let auth = to.matched[0].meta.requiresAuth 控制最外层就行
   let auth = to.meta.requiresAuth //控制当前的地址 无层数限制
-  console.log(auth)
+  //console.log(auth)
   if (auth) {
     if (!accessToken) {
       next({

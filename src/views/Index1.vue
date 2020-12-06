@@ -1,5 +1,5 @@
 <template>
   <div class="Index">
-    <router-view/>
+    <h1>This is an Index page1</h1>
   </div>
 </template>
