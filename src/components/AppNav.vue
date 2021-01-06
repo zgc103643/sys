@@ -11,7 +11,7 @@
                 <template v-if="menuItem.children">
                   <ul>
                      <template v-for="(childMenuItem,ckey) in menuItem.children" >
-                         <li v-bind:key="ckey"  v-if="childMenuItem.meta&&childMenuItem.meta.navShow&&menuItem.meta.navChildShow">
+                         <li v-bind:key="ckey"  v-show="childMenuItem.meta&&childMenuItem.meta.navShow&&menuItem.meta.navChildShow">
                            <router-link  active-class="navActive" exact-active-class="navExactActive" v-bind:to="childMenuItem.path">
                              <img alt="" v-if="childMenuItem.meta.navIcon" v-bind:src="childMenuItem.meta.navIcon"/>
                              <span v-text="childMenuItem.meta.navText"></span>
