@@ -13,7 +13,6 @@ import App from './App.vue'
 /*vuex配置*/
 import store from './store'
 
-
 Vue.config.productionTip = false
 
 new Vue({

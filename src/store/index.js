@@ -24,6 +24,7 @@ export default new Vuex.Store({
       }
       /*显示对应的子导航*/
       state.UI.menu[data.changekey].meta.navChildShow=!data.show;
+      console.log(1111)
     }
   },
   actions: {
