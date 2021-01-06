@@ -8,7 +8,7 @@
                   <img alt="" v-if="menuItem.meta.navIcon" v-bind:src="menuItem.meta.navIcon"/>
                   <span v-text="menuItem.meta.navText"></span>
                 </router-link>
-                <template v-if="menuItem.children">
+                <template v-show="menuItem.children">
                   <ul>
                      <template v-for="(childMenuItem,ckey) in menuItem.children" >
                          <li v-bind:key="ckey"  v-show="childMenuItem.meta&&childMenuItem.meta.navShow&&menuItem.meta.navChildShow">
