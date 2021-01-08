@@ -22,6 +22,10 @@ export default {
 </script>
 <style lang="less">
 //@import url("@/assets/theme.less");
+.home{
+  width: 100%;
+  height: 100%;
+}
 #AppHead{
   width: 100%;
   height: @AppHead_Height;
@@ -71,7 +75,15 @@ export default {
   padding-left:@AppNav_Width;
   float: left;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow: auto;
+  background: @AppMain_Background;
+}
+#AppMain>div{
+  margin:10px;
+  padding:10px;
+  position: relative;
+  background: white;
+  //height: 2000px;
 }
 </style>
 

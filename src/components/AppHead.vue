@@ -4,6 +4,17 @@
      <div class="AppHeadRight"></div>
   </div>
 </template>
+<script>
+export default {
+  data(){
+    return {
+
+    }
+  },
+  mounted() {
+  }
+}
+</script>
 <style scoped="scoped" lang="less">
   .AppHeadLeft{
     width: @AppNav_Width;
@@ -15,15 +26,16 @@
     background-size: cover;
     color:@AppHead_Left_Text_color;
     text-align: center;
-    font-size:@AppHead_Left_Text_Size ;
+    font-size:@AppHead_Left_Text_Size;
+    box-sizing: border-box;
   }
   .AppHeadRight{
-    padding-left: @AppNav_Width;
-    width: 100%;
+    width:  calc(~"100% - @{AppNav_Width}");
     box-sizing: border-box;
-    height: @AppHead_Height;
+    height: @AppHead_Height+1;
     background:@AppHead_Right_Backgournd;
     position: absolute;
-    top:0;left:0;
+    top:0;left:@AppNav_Width;
+    border-bottom:@AppHead_Right_Border;
   }
 </style>
