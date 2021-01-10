@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import routes from "./router.onfig"
+import VueRun from '../main'
 
 Vue.use(VueRouter)
 
@@ -27,6 +28,13 @@ router.beforeEach((to, from, next) => {
   } else {
     next()
   }
+})
+
+router.afterEach((to) => {
+  //获取url位置信息 
+  //console.log(to.matched)
+  //console.log(VueRun.$store.state);
+  VueRun.$store.commit("UI_menu_url_info",to.matched);
 })
 
 export default router

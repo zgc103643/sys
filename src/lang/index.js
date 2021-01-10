@@ -7,6 +7,9 @@ const i18n=new I18n({
     zh:require("./zh"),
     en:require("./en")
   }
-})
-
-export default i18n
+});
+export let languagelist=[
+  {id:1,icon:'',locale:'zh',txt:'简体中文'},
+  {id:1,icon:'',locale:'en',txt:'English'},
+];
+export default i18n;

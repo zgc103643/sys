@@ -7,25 +7,17 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     UI:{
-      menu:routes[0].children
+      menu:routes[0].children,//当前左侧导航数据
+      menu_url_info:[],//当前url地址信息数据
     }
   },
   getters: {
     
   },
   mutations: {
-    UI_menu_click_toggle(state,data){
-     // console.log(data.routerInfo)
-      console.log(state.UI.menu[data.changekey]);
-      /*恢复所有隐藏子导航*/
-      for(let key in state.UI.menu){
-        if(state.UI.menu[key].meta){
-            state.UI.menu[key].meta.navChildShow=false;
-        }
-      }
-      /*显示对应的子导航*/
-      state.UI.menu[data.changekey].meta.navChildShow=!data.show;
-      console.log(1111)
+    UI_menu_url_info(state,data){
+      //console.log(state,data)
+      state.UI.menu_url_info=data;
     }
   },
   actions: {
