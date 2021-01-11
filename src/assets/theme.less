@@ -7,6 +7,8 @@
 @AppHead_Right_Backgournd:#ffffff;
 @AppHead_Right_Border:1px solid #ccc;
 @AppHead_Right_link_color:#4395ff;
+@AppHead_Right_Btn_Hover_Backgournd:#eee;
+@AppHead_Right_Btn_Padding:0 10px;
 //左边导航区域
 @AppNav_Width:260px;
 @AppNav_Backgournd:#333;
@@ -14,4 +16,42 @@
 @AppNav_link_color:#aaa;
 @AppNav_link_navActive_color:#4395ff;
 //右边内容区域
-@AppMain_Background:#ddd;
+@AppMain_Background:#ebeef1;
+
+//公共样式
+//[下拉菜单窗口]
+@menu_box_border_color:#aaa;
+.menu_box{
+  border-radius: 10px;
+  box-shadow: 0 2px 2px rgba(204, 197, 185, 0.5)
+}
+.menu_box:before{
+  content: " ";
+  display: block;
+  width:0px;height:0px;
+  border:10px solid transparent;
+  border-bottom-color:@menu_box_border_color;
+  position: absolute;
+  top:-20px;
+  right:20px;
+}
+.menu_box:after{
+  content: " ";
+  display: block;
+  width:0px;height:0px;
+  border:10px solid transparent;
+  border-bottom-color:#fff;
+  position: absolute;
+  top:-19px;
+  right:20px;
+}
+.menu_box_first_child{
+  border-radius: 8px 8px 0 0;
+}
+.menu_box_last_child{
+  border-radius: 0 0 8px 8px;
+}
+.menu_box .active{
+  background: #eee;
+}
+

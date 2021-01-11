@@ -9,7 +9,8 @@ const i18n=new I18n({
   }
 });
 export let languagelist=[
-  {id:1,icon:'',locale:'zh',txt:'简体中文'},
-  {id:1,icon:'',locale:'en',txt:'English'},
+  {id:1,icon:require("../assets/language/zh-hans.png"),locale:'zh',txt:'简体中文'},
+  {id:1,icon:require("../assets/language/en.png"),locale:'en',txt:'English'},
+  {id:1,icon:require("../assets/language/da.png"),locale:'en',txt:'xsSDFS'},
 ];
 export default i18n;
