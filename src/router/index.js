@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import routes from "./router.onfig"
 import VueRun from '../main'
+import {setTitle} from "../unit/function"
 
 Vue.use(VueRouter)
 
@@ -35,6 +36,10 @@ router.afterEach((to) => {
   //console.log(to.matched)
   //console.log(VueRun.$store.state);
   VueRun.$store.commit("UI_menu_url_info",to.matched);
+  //获取标题层级
+  setTitle(VueRun,"/");
+  
 })
+
 
 export default router

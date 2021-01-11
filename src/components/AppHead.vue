@@ -5,9 +5,9 @@
        
        <div v-if="menu_url_info" class="menu_url_info">位置：
          <template v-for="(item,key) in menu_url_info" >
-            <router-link v-bind:key="key" v-if="item.path!==''"  v-bind:to="item.path">
-              <span v-if="key>1" class='line'>&nbsp;/&nbsp;</span>
-              <span v-if="item.meta" v-text="$t(item.meta.navText)" v-bind:class="key>1?'a_disable':'a_enable'"></span>
+            <router-link v-bind:key="key"  v-bind:to="item.path">
+              <span v-if="key>0" class='line'>&nbsp;/&nbsp;</span>
+              <span v-if="item.meta" v-text="$t(item.meta.navText)" v-bind:class="key>0?'a_disable':'a_enable'"></span>
             </router-link>
          </template>
        </div>

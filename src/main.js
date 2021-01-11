@@ -18,9 +18,5 @@ export default new Vue({
   render: h => h(App),
   router:router,
   store:store,
-  i18n:lang,
-  created(){
-    //document.title=this.Global.appName;
-    document.title=111;
-  }
+  i18n:lang
 }).$mount('#app');

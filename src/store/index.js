@@ -17,7 +17,9 @@ export default new Vuex.Store({
   mutations: {
     UI_menu_url_info(state,data){
       //console.log(state,data)
-      state.UI.menu_url_info=data;
+      let dataUrl=Array.from(data);
+      dataUrl=dataUrl.filter(v=>v.path!=="");
+      state.UI.menu_url_info=dataUrl;
     }
   },
   actions: {

@@ -12,6 +12,7 @@
 </template>
 <script>
 import {languagelist} from "../lang";
+import {setTitle} from "../unit/function";
 export default {
   props:["languageSwitch"],
   data(){
@@ -29,9 +30,13 @@ export default {
     languageToggle(locale,txt,icon){
       //this.$store.commit("UI_menu_click_toggle",data);
       //console.log(data);
-      this.$i18n.locale=locale
-      this.$data.languageText=txt;
-      this.$data.languageIcon=icon
+        //修改语言
+        this.$i18n.locale=locale;
+        //同步设置标题
+        setTitle(this,"/");    
+        //修改状态数据
+        this.$data.languageText=txt;
+        this.$data.languageIcon=icon;
     }
   },
   //建议放到组件里面，比较方便代码复用
@@ -43,7 +48,6 @@ export default {
       }
       this.$emit('languageSwitchToggle',"close");
     }; 
-    console.log(this.languageSwitch)
     document.body.addEventListener('click', this._close);
     
   },
