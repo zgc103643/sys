@@ -12,6 +12,7 @@
          </template>
        </div>
        <language v-bind:languageSwitch="languageSwitch" @languageSwitchToggle="languageSwitchToggle($event)"  />
+       <username v-bind:userMenuSwitch="userMenuSwitch" @userMenuSwitchToggle="userMenuSwitchToggle($event)"  />
      </div>
 
      
@@ -19,11 +20,13 @@
 </template>
 <script>
 import language from "./Language";
+import username from "./UserMenu";
 export default {
-  components:{language},
+  components:{language,username},
   data(){
     return {
        languageSwitch:false,
+       userMenuSwitch:false,
     }
   },
    computed:{
@@ -38,6 +41,14 @@ export default {
         this.$data.languageSwitch=false;
       }else{
         this.$data.languageSwitch=!this.$data.languageSwitch
+      }
+    },
+    userMenuSwitchToggle(arg){
+      //console.log(arg)
+      if(arg=="close"){
+        this.$data.userMenuSwitch=false;
+      }else{
+        this.$data.userMenuSwitch=!this.$data.userMenuSwitch
       }
     },
   }

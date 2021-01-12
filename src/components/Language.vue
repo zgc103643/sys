@@ -2,12 +2,12 @@
     <div class="language" @click="$emit('languageSwitchToggle','default')">
       <span class="icon"  v-bind:style="{background:`url(${languageIcon}) no-repeat center/18px 14px`}"></span>
       <span class="txt" v-text="languageText"></span>
-          <ul v-if="languageSwitch" class="menu_box">
-            <li v-for="(item,key) in languagelist" v-bind:key="key" @click="languageToggle(item.locale,item.txt,item.icon)" v-bind:class="{active:languageText===item.txt,menu_box_first_child:key===0,menu_box_last_child:languagelist.length===key+1}">
-              <span class="icon"  v-bind:style="{background:`url(${item.icon}) no-repeat center/18px 14px`}"></span>
-              <span class="txt" v-text="item.txt"></span>
-            </li>
-          </ul>
+      <ul v-if="languageSwitch" class="menu_box">
+        <li v-for="(item,key) in languagelist" v-bind:key="key" @click="languageToggle(item.locale,item.txt,item.icon)" v-bind:class="{active:languageText===item.txt,menu_box_first_child:key===0,menu_box_last_child:languagelist.length===key+1}">
+          <span class="icon"  v-bind:style="{background:`url(${item.icon}) no-repeat center/18px 14px`}"></span>
+          <span class="txt" v-text="item.txt"></span>
+        </li>
+      </ul>
     </div>
 </template>
 <script>
