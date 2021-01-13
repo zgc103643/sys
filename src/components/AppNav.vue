@@ -31,7 +31,7 @@ import routers from "../router/router.onfig";
 export default {
   data(){
     return {
-      menuNameList:['Index','About','Test'],
+      menuNameList:['Index','About','Test',"User"],
       currentToggel:false,
       currentKey:0
     }
@@ -67,8 +67,6 @@ export default {
             }else{
               continue
             }
-            //menuChildren.sort((a,b)=>a.meta.navSort - b.meta.navSort);
-            //menu[i].children=menuChildren
           }
         }else{
           //如果没有就显示为空

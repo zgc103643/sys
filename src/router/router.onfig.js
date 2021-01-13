@@ -41,6 +41,19 @@ const routes = [
           redirect: '/test/add1',//写排序最小的地址
         },
         {
+          path: '/user',
+          name: 'User',
+          meta: {requiresAuth:false,navShow:true,navText:'A.a1',navIcon:require("../assets/shezhi.svg"),navSort:4,leftNav:true},
+          component: () => import('../views/Test.vue'),
+          children:[
+            {path:'/user/add1', meta: {requiresAuth:false,navShow:true,navText:'A.a1',navIcon:require("../assets/shezhi.svg"),navSort:1,leftNav:true,},component: () => import('../views/Test1.vue')},
+            {path:'/user/add2', meta: {requiresAuth:false,navShow:true,navText:'A.a1',navIcon:'',navSort:1,leftNav:true,},component: () => import('../views/Test2.vue')},
+            {path:'/user/add3', meta: {requiresAuth:false,navShow:true,navText:'A.a1',navIcon:'',navSort:1,leftNav:true,},component: () => import('../views/Test3.vue')},
+            {path:'/user/add4', meta: {requiresAuth:false,navShow:true,navText:'A.a1',navIcon:'',navSort:1,leftNav:true,},component: () => import('../views/Test4.vue')},
+          ],
+          redirect: '/user/add1',//写排序最小的地址
+        },
+        {
           path: "/",
           name:"redirect",
           redirect: "/index"

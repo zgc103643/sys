@@ -3,30 +3,49 @@
     <span class="icon" v-html="userMenuIcon" ></span>
     <span class="txt" v-text="userMenuText"></span>
     <ul v-if="userMenuSwitch" class="menu_box">
-      <li v-for="(item,key) in userMenulist" v-bind:key="key"  v-bind:class="{active:userMenuText===$t(item.meta.navText),menu_box_first_child:key===0,menu_box_last_child:userMenulist.length===key+1}">
-        <span class="icon"  v-bind:style="{background:`url(${item.meta.navIcon}) no-repeat center/18px 14px`}"></span>
+      <li v-for="(item,key) in menu" v-bind:key="key"  v-bind:class="{menu_box_first_child:key===0,menu_box_last_child:menu.length===key+1}">
+        <router-link v-bind:to="item.path" active-class="active">
         <span class="txt" v-text="$t(item.meta.navText)"></span>
+        </router-link>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
+import routers from "../router/router.onfig";
 export default {
   name: "UserMenu",
   props:["userMenuSwitch"],
   data(){
     return {
       userMenuText:"用户设置",
+      userMenuActiveIndex:0,
       userMenuIcon:"<i class='iconfont icon-yonghu'></i>",
-      userMenulist:[
-        {path:"/index/add1",meta:{requiresAuth:false,navShow:true,navText:'A.a1',navIcon:require("../assets/shezhi.svg"),navSort:3,leftNav:true}},
-        {path:"/index/add2",meta:{requiresAuth:false,navShow:true,navText:'A.a2',navIcon:require("../assets/shezhi.svg"),navSort:3,leftNav:true}},
-        {path:"/index/add3",meta:{requiresAuth:false,navShow:true,navText:'A.a3',navIcon:require("../assets/shezhi.svg"),navSort:3,leftNav:true}}
-      ]
     }
   },
   computed:{
+    menu(){
+      //获取导航的顶级目录
+      let menu=routers.filter(v=>v.name==='Home');
+      if(menu.length>0){
+        //获取顶级目录的菜单
+        menu=Array.from(menu[0].children);
+        //筛选出左侧要显示的菜单
+        menu=menu.filter(v=>v.name==='User');
+        //二级菜单进行排序（从小到大）
+          if(menu[0].children){
+            let menuChild=Array.from(menu[0].children);
+            menuChild.sort((a,b)=>a.meta.navSort - b.meta.navSort);
+            menu=menuChild
+          }
+      }else{
+        //如果没有就显示为空
+        menu=[];
+      }
+      //console.log(menu)
+      return menu;
+    }
   },
   methods:{
   },
@@ -69,6 +88,10 @@ export default {
 }
 .userMenu ul li{
   white-space: nowrap;
+  overflow: hidden;
+}
+.userMenu ul li a{
+  display: block;
   padding:0 10px;
 }
 .userMenu .icon{
